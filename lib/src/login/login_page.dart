@@ -1,18 +1,35 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
+import 'package:proyectos_flutter/src/login/login_controller.dart';
 import 'package:proyectos_flutter/src/utils/my_colors.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({ Key? key }) : super(key: key);
+  const LoginPage({ Key key }) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+  LoginController _con = new LoginController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print('INIT STATE');
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      print('Scheduler Binding');
+      _con.init(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    print('METODO BUILD');
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -57,7 +74,8 @@ class _LoginPageState extends State<LoginPage> {
       style: TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
-        fontSize: 22
+        fontSize: 22,
+        fontFamily: 'NimbusSans'
         ),
     );
   }
@@ -165,13 +183,16 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   ),
                 SizedBox(width: 9),
-                Text(
-                  'Registrate',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: MyColors.primaryColor
-                  ),
-                  ),
+                GestureDetector(
+                  onTap: _con.goToRegister,
+                  child: Text(
+                    'Registrate',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: MyColors.primaryColor
+                    ),
+                    ),
+                ),
               ],
             );
   }
