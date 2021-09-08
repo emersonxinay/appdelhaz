@@ -43,15 +43,17 @@ class _LoginPageState extends State<LoginPage> {
               top: 60,
               left: 25,
               child: _textLogin()),
-            Column(
-              children: [
-                //_imagenBanner(),
-                _lottieAnimation(),
-                _textFieldEmail(),
-                _textFieldPassword(),
-                _buttonRegistrarse(),
-                _rowTextRegistrate(),   
-              ],
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  //_imagenBanner(),
+                  _lottieAnimation(),
+                  _textFieldEmail(),
+                  _textFieldPassword(),
+                  _buttonRegistrarse(),
+                  _rowTextRegistrate(),   
+                ],
+              ),
             ),
           ],
         ),
@@ -115,6 +117,8 @@ class _LoginPageState extends State<LoginPage> {
         borderRadius: BorderRadius.circular(30)
         ),
       child: TextField(
+                keyboardType: TextInputType.emailAddress,
+                obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'Correo Electronico',
                   border: InputBorder.none,
