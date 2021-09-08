@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:proyectos_flutter/src/utils/my_colors.dart';
 
 class LoginPage extends StatefulWidget {
@@ -27,7 +28,8 @@ class _LoginPageState extends State<LoginPage> {
               child: _textLogin()),
             Column(
               children: [
-                _imagenBanner(),
+                //_imagenBanner(),
+                _lottieAnimation(),
                 _textFieldEmail(),
                 _textFieldPassword(),
                 _buttonRegistrarse(),
@@ -51,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
   }
   Widget _textLogin(){
     return Text(
-      'LOGIN',
+      'HAZUKI',
       style: TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
@@ -72,6 +74,21 @@ class _LoginPageState extends State<LoginPage> {
                 ),
     );
   }
+  Widget _lottieAnimation(){
+    return Container(
+      margin: EdgeInsets.only(
+        top: 150, 
+        bottom: MediaQuery.of(context).size.height * 0.16
+        ),
+      child: Lottie.asset(
+        'assets/json/delivery.json',
+        width: 350,
+        height: 200,
+        fit: BoxFit.fill
+        ),
+    );
+  }
+  
   Widget _textFieldEmail(){
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 50),

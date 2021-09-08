@@ -23,6 +23,7 @@ class _MyAppState extends State<MyApp> {
         'login': (BuildContext context) => LoginPage()
       },
       theme: ThemeData(
+        fontFamily: 'Roboto',
         primaryColor: MyColors.primaryColor
       ),
     );
