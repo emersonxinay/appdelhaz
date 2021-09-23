@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:lottie/lottie.dart';
-import 'package:proyectos_flutter/src/login/login_controller.dart';
+import 'package:proyectos_flutter/src/pages/login/login_controller.dart';
 import 'package:proyectos_flutter/src/utils/my_colors.dart';
 
 class LoginPage extends StatefulWidget {
