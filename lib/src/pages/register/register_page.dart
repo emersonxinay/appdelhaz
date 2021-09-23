@@ -172,7 +172,7 @@ class _RegisterPageState extends State<RegisterPage> {
         borderRadius: BorderRadius.circular(30)
         ),
       child: TextField(
-                controller: _con.phonoController,
+                controller: _con.phoneController,
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                   hintText: 'Telefono',
@@ -222,7 +222,7 @@ class _RegisterPageState extends State<RegisterPage> {
         borderRadius: BorderRadius.circular(30)
         ),
       child: TextField(
-                controller: _con.passwordconfirmController,
+                controller: _con.confirmPasswordController,
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'Confirmar Contraseña',
