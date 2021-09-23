@@ -27,7 +27,7 @@ class RegisterController {
     String password = passwordController.text.trim();
     String confirmPassword = confirmPasswordController.text.trim();
 
-    if (email.isEmpty|| name.isEmpty || lastname.isEmpty || phone.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
+    if (email.isEmpty || name.isEmpty || lastname.isEmpty || phone.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
       MySnackbar.show(context, 'Ingresar todos los campos');
       return;
     }
