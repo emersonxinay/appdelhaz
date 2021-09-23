@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter/material.dart';
 import 'package:proyectos_flutter/src/models/response_api.dart';
 import 'package:proyectos_flutter/src/models/user.dart';
 import 'package:proyectos_flutter/src/provider/users_provider.dart';

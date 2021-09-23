@@ -6,7 +6,7 @@ import 'package:proyectos_flutter/src/models/user.dart';
 import 'package:http/http.dart' as http;
 class UsersProvider {
   String _url = Environment.API_DELIVERY;
-  String _api = '/api/users/';
+  String _api = '/api/users';
 
   BuildContext context;
 
