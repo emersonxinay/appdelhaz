@@ -264,7 +264,7 @@ class _RegisterPageState extends State<RegisterPage> {
       height: 230,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
-        color: MyColors.primaryColor
+        color: MyColors.primaryColor,
       ),
     );
   }

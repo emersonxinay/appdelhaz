@@ -117,8 +117,8 @@ class _LoginPageState extends State<LoginPage> {
         borderRadius: BorderRadius.circular(30)
         ),
       child: TextField(
+                controller: _con.emailController,
                 keyboardType: TextInputType.emailAddress,
-                obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'Correo Electronico',
                   border: InputBorder.none,
@@ -142,6 +142,8 @@ class _LoginPageState extends State<LoginPage> {
         borderRadius: BorderRadius.circular(30)
         ),
       child: TextField(
+                controller: _con.passwordController,
+                obscureText: true,
                 decoration: InputDecoration(
                   hintText: 'Contraseña',
                   border: InputBorder.none,
@@ -162,7 +164,7 @@ class _LoginPageState extends State<LoginPage> {
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
       child: ElevatedButton(
-                onPressed: () {}, 
+                onPressed: _con.login, 
                 child: Text('Ingresar'),
                 style: ElevatedButton.styleFrom(
                   primary: MyColors.primaryColor,
