@@ -62,5 +62,8 @@ class RegisterController {
     print(confirmPassword);
 
   }
+  void back(){
+    Navigator.pop(context); //metodo para regresar atras  
+  }
 
 }

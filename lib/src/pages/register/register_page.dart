@@ -75,7 +75,7 @@ class _RegisterPageState extends State<RegisterPage> {
   }
   Widget _iconBack(){
     return IconButton(
-      onPressed: (){}, 
+      onPressed: _con.back, //activamos para que haga caso el click de atras
       icon: Icon(Icons.arrow_back_ios, color: Colors.white)
       );
   }
