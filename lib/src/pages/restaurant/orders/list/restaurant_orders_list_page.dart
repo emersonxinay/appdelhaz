@@ -17,7 +17,7 @@ class _RestaurantOrdersListPageState extends State<RestaurantOrdersListPage> {
   void initState() {
     super.initState();
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      _con.init(context);
+      _con.init(context, refresh);
     });
   }
 
@@ -101,10 +101,13 @@ class _RestaurantOrdersListPageState extends State<RestaurantOrdersListPage> {
             ],
           )
         ),
+        _con.user != null ? 
+        _con.user.roles.length > 1 ?
         ListTile(
+          onTap: _con.goToRoles,
           title: Text('Seleccionar Rol'),
           trailing: Icon(Icons.person_outline), //trailing es para posiconar a la derecha y leading para la izquierda
-        ),
+        ) : Container() : Container(),
         ListTile(
           onTap: _con.logout,
           title: Text('Cerrar Session'),
@@ -113,6 +116,11 @@ class _RestaurantOrdersListPageState extends State<RestaurantOrdersListPage> {
       ],
     ),
   );
+}
+void refresh(){
+  setState(() {
+    
+  });
 }
   
 }

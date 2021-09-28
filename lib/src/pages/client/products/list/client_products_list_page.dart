@@ -12,13 +12,14 @@ class ClientProductsLitsPage extends StatefulWidget {
 class _ClientProductsLitsPageState extends State<ClientProductsLitsPage> {
 
   ClientProductsListController _con = new ClientProductsListController();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
-      _con.init(context);
+      _con.init(context, refresh);
     });
   }
 
@@ -65,7 +66,7 @@ Widget _drawer(){
             crossAxisAlignment: CrossAxisAlignment.start, //colum sirve para poner elementos uno debajo de otro
             children: [
               Text(
-                'nombre de usuario',
+                '${_con.user?.name ?? '' } ${_con.user?.lastname ?? '' }',
                 style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
@@ -74,7 +75,7 @@ Widget _drawer(){
                 maxLines: 1,
               ),
               Text(
-                'email',
+                _con.user?.email ?? '',
                 style: TextStyle(
                   fontSize: 13,
                   color: Colors.grey,
@@ -85,7 +86,7 @@ Widget _drawer(){
                 maxLines: 1,
               ),
               Text(
-                'Telefono',
+                _con.user?.phone ?? '',
                 style: TextStyle(
                   fontSize: 13,
                   color: Colors.grey,
@@ -99,7 +100,7 @@ Widget _drawer(){
                 margin: EdgeInsets.only(top: 10),
                 height: 60,
                 child: FadeInImage(
-                  image: AssetImage('assets/img/no-image.png'),
+                  image: _con.user?.image != null ? NetworkImage(_con.user?.image): AssetImage('assets/img/no-image.png'), //si en caso la imagen viene vacia se reemplza por otro
                   fit: BoxFit.contain,
                   fadeInDuration: Duration(milliseconds: 50),
                   placeholder: AssetImage('assets/img/uno-image.png'),
@@ -116,17 +117,27 @@ Widget _drawer(){
           title: Text('Mis Pedidos'),
           trailing: Icon(Icons.shopping_cart_outlined), //trailing es para posiconar a la derecha y leading para la izquierda
         ),
+        _con.user != null ? 
+        _con.user.roles.length > 1 ?
         ListTile(
+          onTap: _con.goToRoles,
           title: Text('Seleccionar Rol'),
           trailing: Icon(Icons.person_outline), //trailing es para posiconar a la derecha y leading para la izquierda
-        ),
+        ) : Container() : Container(),
+        
         ListTile(
           onTap: _con.logout,
           title: Text('Cerrar Session'),
           trailing: Icon(Icons.power_settings_new), //trailing es para posiconar a la derecha y leading para la izquierda
-        )
+        ),
       ],
     ),
   );
 }
+void refresh(){
+  setState(() {
+    
+  });
+}
+
 }
