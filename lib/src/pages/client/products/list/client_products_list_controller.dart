@@ -4,12 +4,17 @@ class ClientProductsListController {
   
   BuildContext context;
   SharedPref _sharedPref = new SharedPref();
+  GlobalKey<ScaffoldState> key = new GlobalKey<ScaffoldState>();
 
-  Future init(BuildContext context){
+  Future init(BuildContext context) async{
     this.context = context;
   }
-  logout(){
+  void logout(){
     _sharedPref.logout(context);
+  }
+
+  void openDrawer(){
+    key.currentState.openDrawer();
   }
 
 }

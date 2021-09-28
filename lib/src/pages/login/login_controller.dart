@@ -24,7 +24,13 @@ class LoginController  {
 
     //esto nos ayuda a volver a la pagina que se dejo abierto como usuario logueado y no volver nuevamente a logearse.
     if (user?.sessionToken != null) { // el signo de interregación para evitar error
-      Navigator.pushNamedAndRemoveUntil(context, 'client/products/list', (route) => false);
+      if (user.roles.length > 1) {
+        Navigator.pushNamedAndRemoveUntil(context, 'roles', (route) => false);
+      }
+      else {
+        Navigator.pushNamedAndRemoveUntil(context, user.roles[0].route, (route) => false);
+      }
+
     }
   }
   void goToRegister(){
@@ -42,7 +48,16 @@ class LoginController  {
     if (responseApi.success) {
       User user = User.fromJson(responseApi.data);
       _sharedPref.save('user', user.toJson());  //almancena en el dispositivo al usuario
-      Navigator.pushNamedAndRemoveUntil(context, 'client/products/list', (route) => false);    //nos lleva a una ruta mas especifica y borra todas las pantallas anteriores
+      
+      print('Usuario Logueado: ${user.toJson()}');
+      if (user.roles.length > 1) {
+        Navigator.pushNamedAndRemoveUntil(context, 'roles', (route) => false);
+      }
+      else {
+        Navigator.pushNamedAndRemoveUntil(context, user.roles[0].route, (route) => false);
+      }
+
+       //nos lleva a una ruta mas especifica y borra todas las pantallas anteriores
     }
     else {
       MySnackbar.show(context, responseApi.message);
