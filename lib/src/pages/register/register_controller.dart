@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:proyectos_flutter/src/models/response_api.dart';
 import 'package:proyectos_flutter/src/models/user.dart';
@@ -67,6 +68,29 @@ class RegisterController {
     print(password);
     print(confirmPassword);
 
+  }
+  void showAlertDialog(){
+    Widget galleryButton = ElevatedButton(
+      onPressed: (){},
+      child: Text('Galeria'),
+      );
+    Widget cameraButton = ElevatedButton(
+      onPressed: (){},
+      child: Text('Camara'),
+      );
+    AlertDialog alertDialog = AlertDialog(
+      title: Text('Selecciona tu imagen'),
+      actions: [
+        galleryButton,
+        cameraButton
+        ],
+      );
+    showDialog(
+      context: context, 
+      builder: (BuildContext context){
+        return alertDialog;
+      }
+      );
   }
   void back(){
     Navigator.pop(context); //metodo para regresar atras  
