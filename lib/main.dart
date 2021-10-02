@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyectos_flutter/src/pages/client/update/client_update_page.dart';
 import 'package:proyectos_flutter/src/pages/delivery/orders/list/delivery_orders_list_page.dart';
 import 'package:proyectos_flutter/src/pages/client/products/list/client_products_list_page.dart';
 import 'package:proyectos_flutter/src/pages/login/login_page.dart';
@@ -32,6 +33,7 @@ class _MyAppState extends State<MyApp> {
         'roles': (BuildContext context) => RolesPage(),
         'client/products/list': (BuildContext context) =>
             ClientProductsLitsPage(),
+        'client/update': (BuildContext context) => ClientUpdatePage(),
         'restaurant/orders/list': (BuildContext context) =>
             RestaurantOrdersListPage(),
         'delivery/orders/list': (BuildContext context) =>
