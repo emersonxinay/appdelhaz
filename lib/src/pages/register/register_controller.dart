@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 import 'package:proyectos_flutter/src/models/response_api.dart';
 import 'package:proyectos_flutter/src/models/user.dart';
 import 'package:proyectos_flutter/src/provider/users_provider.dart';
@@ -22,10 +23,14 @@ class RegisterController {
   File imageFile;
   Function refresh;
 
+  ProgressDialog _progressDialog;
+  bool isEnable = true;
+
   Future init(BuildContext context, Function refresh) async {
     this.context = context;
     this.refresh = refresh;
     usersProvider.init(context);
+    _progressDialog = ProgressDialog(context: context);
   }
 
   void register() async {
@@ -51,7 +56,7 @@ class RegisterController {
     }
 
     if (password.length < 6) {
-      MySnackbar.show(context, 'minimo6 carecteres');
+      MySnackbar.show(context, 'minimo 6 carecteres');
       return;
     }
 
@@ -60,7 +65,8 @@ class RegisterController {
       MySnackbar.show(context, 'Selecciona una imagen');
       return;
     }
-
+    _progressDialog.show(max: 100, msg: 'Espere un Momento');
+    isEnable = false;
     User user = new User(
         email: email,
         name: name,
@@ -70,6 +76,7 @@ class RegisterController {
 
     Stream stream = await usersProvider.createWithImage(user, imageFile);
     stream.listen((res) {
+      _progressDialog.close();
       //ResponseApi responseApi = await usersProvider.create(user);
       ResponseApi responseApi = ResponseApi.fromJson(json.decode(res));
       print('Respuesta: ${responseApi.toJson()}');
@@ -79,6 +86,8 @@ class RegisterController {
         Future.delayed(Duration(seconds: 3), () {
           Navigator.pushReplacementNamed(context, 'login');
         });
+      } else {
+        isEnable = true;
       }
     });
   }
