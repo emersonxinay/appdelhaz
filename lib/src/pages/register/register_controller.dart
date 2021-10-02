@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:progress_dialog/progress_dialog.dart';
+import 'package:sn_progress_dialog/progress_dialog.dart';
 import 'package:proyectos_flutter/src/models/response_api.dart';
 import 'package:proyectos_flutter/src/models/user.dart';
 import 'package:proyectos_flutter/src/provider/users_provider.dart';
@@ -65,6 +65,7 @@ class RegisterController {
       MySnackbar.show(context, 'Selecciona una imagen');
       return;
     }
+    // mensaje de Porgreso de carga
     _progressDialog.show(max: 100, msg: 'Espere un Momento');
     isEnable = false;
     User user = new User(
@@ -76,7 +77,7 @@ class RegisterController {
 
     Stream stream = await usersProvider.createWithImage(user, imageFile);
     stream.listen((res) {
-      _progressDialog.close();
+      _progressDialog.close(); // cierra el prgreso de carga
       //ResponseApi responseApi = await usersProvider.create(user);
       ResponseApi responseApi = ResponseApi.fromJson(json.decode(res));
       print('Respuesta: ${responseApi.toJson()}');
@@ -97,7 +98,7 @@ class RegisterController {
     if (pickedFile != null) {
       imageFile = File(pickedFile.path);
     }
-    Navigator.pop(context);
+    Navigator.pop(context); //para que se se carge la imagen automaticamente
     refresh();
   }
 

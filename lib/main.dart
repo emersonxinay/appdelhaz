@@ -10,8 +10,9 @@ import 'package:proyectos_flutter/src/utils/my_colors.dart';
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatefulWidget {
-  const MyApp({ Key key }) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -24,18 +25,20 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Delivery Hazuki',
       initialRoute: 'login',
-      routes: { //rutas para las paginas
+      routes: {
+        //rutas para las paginas
         'login': (BuildContext context) => LoginPage(),
         'register': (BuildContext context) => RegisterPage(),
         'roles': (BuildContext context) => RolesPage(),
-        'client/products/list': (BuildContext context) => ClientProductsLitsPage(),
-        'restaurant/orders/list': (BuildContext context) => RestaurantOrdersListPage(),
-        'delivery/orders/list': (BuildContext context) => DeliveryOrdersListPage(),
+        'client/products/list': (BuildContext context) =>
+            ClientProductsLitsPage(),
+        'restaurant/orders/list': (BuildContext context) =>
+            RestaurantOrdersListPage(),
+        'delivery/orders/list': (BuildContext context) =>
+            DeliveryOrdersListPage(),
       },
-      theme: ThemeData(
-        fontFamily: 'Roboto',
-        primaryColor: MyColors.primaryColor
-      ),
+      theme:
+          ThemeData(fontFamily: 'Roboto', primaryColor: MyColors.primaryColor),
     );
   }
 }

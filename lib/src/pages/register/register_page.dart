@@ -43,7 +43,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     _textFieldEmail(),
                     _textFieldName(),
                     _textFieldLastName(),
-                    _textFieldTelefono(),
+                    _textFieldPhone(),
                     _textFieldPassword(),
                     _textFieldPasswordConfirm(),
                     _buttonRegistrarse()
@@ -151,7 +151,7 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  Widget _textFieldTelefono() {
+  Widget _textFieldPhone() {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 50, vertical: 5),
       decoration: BoxDecoration(
@@ -222,6 +222,7 @@ class _RegisterPageState extends State<RegisterPage> {
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
       child: ElevatedButton(
+        //si el usuario se muestra deja registrarlo caso contrario null
         onPressed: _con.isEnable ? _con.register : null,
         child: Text('REGISTRARSE'),
         style: ElevatedButton.styleFrom(
