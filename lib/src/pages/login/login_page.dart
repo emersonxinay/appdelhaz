@@ -15,7 +15,6 @@ class _LoginPageState extends State<LoginPage> {
   LoginController _con = new LoginController();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     print('INIT STATE');
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
@@ -37,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
             SingleChildScrollView(
               child: Column(
                 children: [
-                  //_imagenBanner(),
+                  _imagenBanner(),
                   _lottieAnimation(),
                   _textFieldEmail(),
                   _textFieldPassword(),
