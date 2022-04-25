@@ -2,6 +2,12 @@
 
 A new Flutter project.
 
+## proyecto movil realizado para restaurantes 
+### para ejecutar este proyecto tienes que estar conectado con el servidor 
+### ejecuta desde le terminal 
+´´´flutter
+  flutter run 
+´´´
 ## Getting Started
 
 This project is a starting point for a Flutter application.

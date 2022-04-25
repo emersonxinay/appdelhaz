@@ -1,3 +1,3 @@
 class Environment {
-  static const String API_DELIVERY = '192.168.0.2:3000';
+  static const String API_DELIVERY = '192.168.18.18:3000';
 }
